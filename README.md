@@ -33,6 +33,23 @@ Omogućava dodavanje zadataka, izbor prioriteta, označavanje zadataka kao zavr�
 - HTML
 - CSS
 
+## Pokretanje aplikacije
+
+### 1. Kloniranje repozitorijuma
+
+git clone https://github.com/filipandjelkovic2007-dev/Todo-aplikacija.git
+cd Todo-aplikacija-main
+
+### 2. Instalacija zavisnosti
+
+npm install
+
+### 3. Pokretanje development servera
+
+npm run dev
+
+Nakon pokretanja, Vite će u terminalu prikazati lokalnu adresu aplikacije
+
 ## Struktura projekta
 
 ```text
