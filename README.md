@@ -38,6 +38,7 @@ Omogućava dodavanje zadataka, izbor prioriteta, označavanje zadataka kao zavr�
 ### 1. Kloniranje repozitorijuma
 
 git clone https://github.com/filipandjelkovic2007-dev/Todo-aplikacija.git
+
 cd Todo-aplikacija-main
 
 ### 2. Instalacija zavisnosti
