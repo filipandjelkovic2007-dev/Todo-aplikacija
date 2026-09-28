@@ -1,0 +1,27 @@
+{
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    // "bundler" odgovara webpack 5 / Vue CLI 5 rezoluciji modula
+    "moduleResolution": "bundler",
+    "checkJs": true,
+    // baseUrl je potreban da bi "paths" alias (@/*) radio.
+    // U TypeScript 7 je oznacen kao deprecated, pa gasimo to upozorenje.
+    "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ]
+  }
+}
