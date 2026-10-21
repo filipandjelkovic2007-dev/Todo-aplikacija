@@ -65,7 +65,7 @@
     </section>
 
     <!-- Lista zadataka -->
-    <ul class="task-list">
+    <TransitionGroup :name="taskTransitionName" tag="ul" class="task-list">
       <TaskItem
         v-for="task in filteredTasks"
         :key="task.id"
@@ -74,7 +74,7 @@
         @toggle-complete="toggleComplete"
         @delete-task="deleteTask"
       />
-    </ul>
+    </TransitionGroup>
 
     <!-- Poruka kada nema zadataka -->
     <p v-if="filteredTasks.length === 0" class="empty-state">
@@ -103,6 +103,7 @@ export default {
       // Polja vezana za formu preko v-model
       newTaskTitle: "",
       newTaskPriority: "Medium",
+      taskTransitionName: "task",
 
       // Filteri
       statusFilter: "All", // Svi | aktivno | završeno
@@ -177,7 +178,11 @@ export default {
     toggleComplete(id) {
       const task = this.tasks.find((task) => task.id === id);
       if (task) {
+        this.taskTransitionName = "task-no-leave";
         task.completed = !task.completed;
+        this.$nextTick(() => {
+          this.taskTransitionName = "task";
+        });
       }
     },
 
@@ -349,9 +354,47 @@ body {
 
 /* ===== Lista ===== */
 .task-list {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.task-enter-active,
+.task-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.task-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.task-leave-active {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.task-leave-to {
+  opacity: 0;
+  transform: translateX(32px);
+}
+
+.task-move {
+  transition: transform 0.25s ease;
+}
+
+.task-no-leave-leave-active {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-enter-active,
+  .task-leave-active,
+  .task-move {
+    transition: none;
+  }
 }
 
 /* ===== Prazno stanje ===== */
