@@ -360,40 +360,40 @@ body {
   padding: 0;
 }
 
-.task-enter-active,
-.task-leave-active {
+.task-list .task-item.task-enter-active,
+.task-list .task-item.task-leave-active {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.task-enter-from {
+.task-list .task-item.task-enter-from {
   opacity: 0;
   transform: translateY(16px);
 }
 
-.task-leave-active {
+.task-list .task-item.task-leave-active {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-.task-leave-to {
+.task-list .task-item.task-leave-to {
   opacity: 0;
   transform: translateX(32px);
 }
 
-.task-move {
-  transition: transform 0.25s ease;
+.task-item.task-move {
+  transition: transform 0.25s ease !important;
 }
 
-.task-no-leave-leave-active {
+.task-list .task-item.task-no-leave-leave-active {
   transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .task-enter-active,
-  .task-leave-active,
-  .task-move {
-    transition: none;
+  .task-list .task-item.task-enter-active,
+  .task-list .task-item.task-leave-active,
+  .task-item.task-move {
+    transition: none !important;
   }
 }
 

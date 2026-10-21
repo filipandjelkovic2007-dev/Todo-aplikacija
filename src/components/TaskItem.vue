@@ -1,9 +1,4 @@
 <template>
-  <!--
-    Conditional styling:
-    - .task-item--completed  -> zauzet zadatak (drugačiji stil)
-    - .task-item--high       -> zadatak visokog prioriteta (druga boja)
-  -->
  <li
     class="task-item"
     :class="{
@@ -11,6 +6,11 @@
       'task-item--high': task.priority === 'High',
     }"
   >
+    <!--
+      Conditional styling:
+      - .task-item--completed  -> zauzet zadatak (drugačiji stil)
+      - .task-item--high       -> zadatak visokog prioriteta (druga boja)
+    -->
     <!-- Informacija o statusu (završeno / nije) -->
     <span
       class="task-item__status"
