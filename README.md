@@ -11,7 +11,6 @@ Omogućava dodavanje zadataka, izbor prioriteta, označavanje zadataka kao zavr�
   - Srednje
   - Nisko
 - Označavanje zadataka kao završenih
-- Poništavanje statusa završenog zadatka
 - Brisanje zadataka
 - Filteri po statusu:
   - Svi
@@ -37,19 +36,24 @@ Omogućava dodavanje zadataka, izbor prioriteta, označavanje zadataka kao zavr�
 
 ### 1. Kloniranje repozitorijuma
 
+```bash
 git clone https://github.com/filipandjelkovic2007-dev/Todo-aplikacija.git
-
-cd Todo-aplikacija-main
+cd Todo-aplikacija
+```
 
 ### 2. Instalacija zavisnosti
 
+```bash
 npm install
+```
 
 ### 3. Pokretanje development servera
 
+```bash
 npm run dev
+```
 
-Nakon pokretanja, Vite će u terminalu prikazati lokalnu adresu aplikacije
+Nakon pokretanja, Vite će u terminalu prikazati lokalnu adresu aplikacije.
 
 ## Struktura projekta
 
@@ -68,3 +72,9 @@ Nakon pokretanja, Vite će u terminalu prikazati lokalnu adresu aplikacije
 ├── package-lock.json
 ├── vite.config.js           # Vite konfiguracija
 └── README.md
+```
+
+## Ograničenja
+
+- Zadatak može da se označi kao završen, ali iz interfejsa ne može da se vrati u aktivne.
+- Zadaci se čuvaju u memoriji aplikacije i resetuju se nakon osvežavanja stranice.
